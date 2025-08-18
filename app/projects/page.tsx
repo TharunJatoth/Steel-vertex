@@ -1,6 +1,10 @@
+// pages/ProjectsPageTwo.jsx
+
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import Image from "next/image";
+
 import {
   Building2,
   Factory,
@@ -9,30 +13,18 @@ import {
   Warehouse,
   Activity,
   ArrowRight,
-  ExternalLink,
   Calendar,
   MapPin,
   Users,
-  Filter,
   ArrowUpRight,
 } from "lucide-react";
+import PageTitle from "../components/PageTitle/pagetitle";
 
 const ProjectsPageTwo = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const categories = [
-    "All",
-    "Commercial",
-    "Industrial",
-    "Residential",
-    "Infrastructure",
-  ];
-
   const projects = [
     {
       id: 1,
       title: "Commercial Office Complex",
-      category: "Commercial",
       type: "Structural Steel Detailing",
       image:
         "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
@@ -51,7 +43,6 @@ const ProjectsPageTwo = () => {
     {
       id: 2,
       title: "Industrial Manufacturing Plant",
-      category: "Industrial",
       type: "Miscellaneous Steel Components",
       image:
         "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80",
@@ -70,7 +61,6 @@ const ProjectsPageTwo = () => {
     {
       id: 3,
       title: "Residential High-Rise",
-      category: "Residential",
       type: "Connection Design",
       image:
         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
@@ -89,7 +79,6 @@ const ProjectsPageTwo = () => {
     {
       id: 4,
       title: "Bridge Infrastructure",
-      category: "Infrastructure",
       type: "Structural Engineering",
       image:
         "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
@@ -108,7 +97,6 @@ const ProjectsPageTwo = () => {
     {
       id: 5,
       title: "Warehouse Facility",
-      category: "Industrial",
       type: "Pre-Engineered Buildings",
       image:
         "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
@@ -127,7 +115,6 @@ const ProjectsPageTwo = () => {
     {
       id: 6,
       title: "Stadium Construction",
-      category: "Commercial",
       type: "Complex Structures",
       image:
         "https://images.unsplash.com/photo-1459865264687-595d652de67e?w=800&q=80",
@@ -145,65 +132,26 @@ const ProjectsPageTwo = () => {
     },
   ];
 
-  const filteredProjects =
-    selectedCategory === "All"
-      ? projects
-      : projects.filter((project) => project.category === selectedCategory);
-
   return (
-    <div className="bg-gray-50 text-gray-800 font-sans">
-      {/* Hero Section */}
-      <div className="relative py-24 bg-gray-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1510525008320-f4216853a060?w=1000&q=80')] bg-cover bg-center opacity-10"></div>
-        <div className="relative container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg">
-            Our Portfolio of Excellence
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Explore our diverse range of successful projects that showcase our
-            precision, expertise, and commitment to quality.
-          </p>
-          <div className="flex justify-center">
-            <button className="bg-white text-gray-900 font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-              Get in Touch
-            </button>
-          </div>
-        </div>
-      </div>
+    <div className="bg-gray-100 text-gray-900 font-sans min-h-screen">
+      <PageTitle pageTitle="Projects" pagesub="Turning Ideas Into Reality" />
 
       {/* Main Content */}
-      <div className="container mx-auto px-6 py-16">
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center items-center gap-4 mb-12">
-          <Filter size={20} className="text-gray-600" />
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                selectedCategory === category
-                  ? "bg-blue-600 text-white shadow-md transform scale-105"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
+      <div className="container mx-auto px-4 py-16">
         {/* Projects Grid */}
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project) => (
             <div
               key={project.id}
-              className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transform hover:scale-105 transition-transform duration-500"
+              className="group bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden transform hover:-translate-y-2 transition-transform duration-300"
             >
               {/* Project Image */}
               <div className="relative h-64 overflow-hidden">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div
                   className={`absolute inset-0 transition-opacity duration-300 ${project.bg} opacity-50 group-hover:opacity-60`}
@@ -236,7 +184,6 @@ const ProjectsPageTwo = () => {
                     <span>{project.details.team}</span>
                   </div>
                 </div>
-
                 <a
                   href="#"
                   className={`inline-flex items-center gap-2 font-semibold ${project.color} hover:gap-3 transition-all duration-300`}
@@ -259,7 +206,7 @@ const ProjectsPageTwo = () => {
             engineering solutions tailored to your specific needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 text-white font-semibold py-4 px-8 rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-md flex items-center justify-center gap-3">
+            <button className="bg-white text-gray-900 font-semibold py-4 px-8 rounded-full hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 shadow-md flex items-center justify-center gap-3">
               <span>Get Your Free Quote</span>
               <ArrowUpRight size={20} />
             </button>

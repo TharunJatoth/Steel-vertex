@@ -1,24 +1,17 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
-
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "dark") {
-      document.documentElement.classList.add("dark");
-      setIsDarkMode(true);
-    }
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -55,7 +48,7 @@ const Navbar = () => {
             onClick={closeMenu}
             className="navbar-brand flex items-center space-x-3"
           >
-            <div className="logo-text sm:block">
+            <div className="logo-text sm:block ml-10">
               <h1 className="text-2xl font-extrabold text-gray-900 dark:text-white leading-tight tracking-tight">
                 Steel<span className="text-orange-500">vertex</span>
               </h1>

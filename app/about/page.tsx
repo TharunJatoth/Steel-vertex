@@ -1,15 +1,10 @@
 "use client";
 
 import React from "react";
-import {
-  Sparkles,
-  Zap,
-  Leaf,
-  Users,
-  Award,
-  CircleCheck,
-  Building2,
-} from "lucide-react";
+import { Zap, Users, Award, CircleCheck } from "lucide-react";
+import Image from "next/image";
+
+import PageTitle from "../components/PageTitle/pagetitle";
 
 const AboutPageTwo = () => {
   const coreValues = [
@@ -64,33 +59,30 @@ const AboutPageTwo = () => {
 
   return (
     <div className="bg-gray-50 text-gray-800 font-sans">
-      {/* Hero Section */}
-      <div className="relative py-24 bg-gray-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1577962917716-bc801968812c?w=1200&q=80')] bg-cover bg-center opacity-10"></div>
-        <div className="relative container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg">
-            About Steel Vertex Solutions
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Your partner in precision steel detailing and design.
-          </p>
-        </div>
-      </div>
+      <PageTitle
+        pageTitle="About"
+        pagesub="Building Excellence Through Innovation"
+      />
 
       {/* Main About Section */}
       <section className="container mx-auto px-6 py-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="flex justify-center">
             <div className="relative w-full max-w-lg aspect-square">
-              <img
-                src="https://images.unsplash.com/photo-1588439402517-db308d519a58?w=800&q=80"
+              <Image
+                src="/service/miscellaneous.png"
                 alt="About Steel Vertex Solutions"
-                className="w-full h-full object-cover rounded-3xl shadow-2xl transform rotate-3 scale-105 transition-transform duration-500"
+                className="rounded-3xl shadow-2xl transform rotate-3 scale-105 transition-transform duration-500"
+                fill
+                style={{ objectFit: "cover" }}
               />
-              <img
-                src="https://images.unsplash.com/photo-1542385311-660c0f8658ac?w=800&q=80"
+
+              <Image
+                src="/service/estimation.png"
                 alt="Team working"
-                className="absolute inset-0 w-full h-full object-cover rounded-3xl shadow-2xl transform -rotate-3 transition-transform duration-500"
+                fill
+                className="object-cover rounded-3xl shadow-2xl transform -rotate-3 transition-transform duration-500"
+                priority
               />
             </div>
           </div>
@@ -179,10 +171,13 @@ const AboutPageTwo = () => {
         <div className="relative bg-gray-100 rounded-3xl p-8 shadow-inner overflow-hidden">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1559869601-381f21199346?w=800&q=80"
+              <Image
+                src="/service/BIM.png"
                 alt="A team of engineers"
-                className="w-full h-auto rounded-2xl shadow-xl"
+                width={600} // adjust to your desired width
+                height={400} // adjust to your desired height
+                className="rounded-2xl shadow-xl"
+                priority
               />
               <div className="absolute top-4 left-4 p-2 bg-white rounded-full shadow-lg">
                 <Users size={28} className="text-blue-600" />

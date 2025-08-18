@@ -1,20 +1,20 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Building2,
-  Cog,
+  Layers,
   Wrench,
   FileText,
-  BarChart3,
   CheckCircle,
   Users,
   Clock,
   Award,
   Zap,
-  ArrowUpRight,
   ChevronRight,
 } from "lucide-react";
+import PageTitle from "../components/PageTitle/pagetitle";
 
 const ServicesPageTwo = () => {
   const [activeService, setActiveService] = useState(0);
@@ -33,20 +33,22 @@ const ServicesPageTwo = () => {
       ],
       color: "text-blue-500",
       bg: "bg-blue-500/10",
+      image: "/service/structural.png",
     },
     {
-      icon: <Cog size={24} />,
-      title: "Connection Design",
+      icon: <FileText size={24} />,
+      title: "Estimation & Material Take Off",
       description:
-        "Reliable and safe connection designs tailored to meet project requirements and industry codes.",
+        "Accurate material take-offs and cost estimations that ensure smooth execution and resource planning.",
       features: [
-        "Moment connections",
-        "Shear connections",
-        "Special connections",
-        "Load analysis",
+        "Comprehensive material take-offs",
+        "Precise cost estimation",
+        "Optimized resource planning",
+        "Enhanced project efficiency",
       ],
-      color: "text-green-500",
-      bg: "bg-green-500/10",
+      color: "text-blue-500",
+      bg: "bg-blue-500/10",
+      image: "/service/estimation.png",
     },
     {
       icon: <Wrench size={24} />,
@@ -61,7 +63,9 @@ const ServicesPageTwo = () => {
       ],
       color: "text-purple-500",
       bg: "bg-purple-500/10",
+      image: "/service/miscellaneous.png",
     },
+
     {
       icon: <FileText size={24} />,
       title: "Fabrication Drawings",
@@ -75,20 +79,23 @@ const ServicesPageTwo = () => {
       ],
       color: "text-orange-500",
       bg: "bg-orange-500/10",
+      image: "/images/fabrication-drawings.jpg",
     },
+
     {
-      icon: <BarChart3 size={24} />,
-      title: "Engineering Reports",
+      icon: <Layers size={24} />,
+      title: "Building Information Modelling (BIM)",
       description:
-        "Detailed analysis and documentation to support structural integrity and compliance.",
+        "Comprehensive BIM solutions with expertise in Architectural, Structural, and Mechanical shop drawings to support seamless construction execution.",
       features: [
-        "Structural analysis",
-        "Compliance documentation",
-        "Load calculations",
-        "PE stamped reports",
+        "Architectural shop drawings",
+        "Structural shop drawings",
+        "Mechanical shop drawings",
+        "Detailed BIM coordination",
       ],
-      color: "text-red-500",
-      bg: "bg-red-500/10",
+      color: "text-purple-500",
+      bg: "bg-purple-500/10",
+      image: "/service/BIM.png",
     },
   ];
 
@@ -121,27 +128,10 @@ const ServicesPageTwo = () => {
 
   return (
     <div className="bg-white text-gray-800 font-sans">
-      {/* Hero Section */}
-      <div className="relative py-24 bg-gray-900 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542838384-255d644d67e7')] bg-cover bg-center opacity-10"></div>
-        <div className="relative container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight drop-shadow-lg">
-            Elevating Your Projects with Expert Steel Detailing
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Precision, professionalism, and promptness. We are your trusted
-            partners in structural steel detailing and design.
-          </p>
-          <div className="flex justify-center gap-4">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
-              Request a Quote
-            </button>
-            <button className="bg-transparent border border-gray-400 text-gray-300 font-semibold py-3 px-8 rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300">
-              Explore Our Work
-            </button>
-          </div>
-        </div>
-      </div>
+      <PageTitle
+        pageTitle="Services"
+        pagesub="Precision. Strength. Reliability."
+      />
 
       {/* Services Section */}
       <div className="container mx-auto px-6 py-16">
@@ -229,7 +219,21 @@ const ServicesPageTwo = () => {
                 {services[activeService].title}
               </h3>
             </div>
-            <p className="text-gray-600 text-lg mb-6">
+
+            {services[activeService].image && (
+              <div className="flex justify-center items-center">
+                <Image
+                  src={services[activeService].image}
+                  alt={services[activeService].title}
+                  width={800} // matches max-w-[800px]
+                  height={450} // matches h-[450px]
+                  className="w-full max-w-[800px] h-[450px] rounded-xl shadow-lg bg-white"
+                  priority
+                />
+              </div>
+            )}
+
+            <p className="text-gray-600 text-lg mb-6 mt-5">
               {services[activeService].description}
             </p>
             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4 mb-8">
@@ -243,10 +247,6 @@ const ServicesPageTwo = () => {
                 </div>
               ))}
             </div>
-            <button className="flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all duration-300">
-              Learn More
-              <ArrowUpRight size={18} />
-            </button>
           </div>
         </div>
       </div>

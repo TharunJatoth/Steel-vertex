@@ -35,40 +35,39 @@ const Footer = () => {
                 >
                   {/* Logo Icon */}
                   <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center shadow-lg">
-                    <div className="relative">
+                    <div className="relative w-full h-full flex items-center justify-center">
                       {/* S shape */}
-                      <div className="absolute -top-1 -left-1">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                        >
-                          <path
-                            d="M15 4C15 2 13 1 10 1C7 1 5 2 5 4C5 6 7 7 10 7C13 7 15 8 15 10C15 12 13 13 10 13C7 13 5 12 5 10"
-                            stroke="white"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                          />
-                        </svg>
-                      </div>
-                      {/* V shape overlay */}
-                      <div className="absolute top-1 left-1">
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                        >
-                          <path
-                            d="M2 6L8 14L14 6"
-                            stroke="white"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
+                      <svg
+                        className="absolute"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                      >
+                        <path
+                          d="M15 4C15 2 13 1 10 1C7 1 5 2 5 4C5 6 7 7 10 7C13 7 15 8 15 10C15 12 13 13 10 13C7 13 5 12 5 10"
+                          stroke="white"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+
+                      {/* V shape */}
+                      <svg
+                        className="absolute"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M2 6L8 14L14 6"
+                          stroke="white"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </div>
                   </div>
 

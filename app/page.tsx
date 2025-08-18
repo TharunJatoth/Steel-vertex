@@ -2,6 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+
 import { ArrowRight, Sparkles, Building2, HardHat } from "lucide-react";
 
 const HomePage = () => {
@@ -44,8 +46,9 @@ const HomePage = () => {
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-xl animate-fade-in-down">
-            Your Vision, Our Mission
+            Your Vision, <span className="text-orange-500">Our Mission</span>
           </h1>
+
           <p className="text-lg md:text-xl text-gray-300 mb-8 animate-fade-in-up">
             We believe that every great achievement starts with a vision.
             Whether you're building a brand, developing a product, or planning a
@@ -55,7 +58,7 @@ const HomePage = () => {
           </p>
           <div className="flex justify-center space-x-4 animate-fade-in-up delay-100">
             <Link href="/about">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg transform hover:scale-105">
+              <button className="bg-orange-500 hover:bg-orange-500 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg transform hover:scale-105">
                 About Us
               </button>
             </Link>
@@ -121,10 +124,13 @@ const HomePage = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Visual Section */}
             <div className="relative">
-              <img
+              <Image
                 src="/home.jpg"
                 alt="Engineers collaborating"
+                width={1200} // adjust to your desired width
+                height={800} // adjust to maintain aspect ratio
                 className="w-full h-auto rounded-3xl shadow-2xl"
+                priority
               />
               <div className="absolute top-8 -right-8 p-4 bg-white/20 backdrop-blur-md rounded-2xl shadow-xl transform rotate-3 animate-pulse-slow">
                 <Sparkles size={48} className="text-blue-400" />
