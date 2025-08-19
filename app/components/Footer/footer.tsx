@@ -168,7 +168,7 @@ const Footer = () => {
               <ul className="footer-links space-y-3">
                 <li>
                   <a
-                    href="#"
+                    href="/services"
                     className="text-gray-300 hover:text-orange-400 transition-colors"
                   >
                     Structural Steel Detailing
@@ -176,7 +176,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/services"
                     className="text-gray-300 hover:text-orange-400 transition-colors"
                   >
                     Connection Design
@@ -184,7 +184,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/services"
                     className="text-gray-300 hover:text-orange-400 transition-colors"
                   >
                     Miscellaneous Steel
@@ -192,7 +192,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/services"
                     className="text-gray-300 hover:text-orange-400 transition-colors"
                   >
                     Fabrication Drawings
@@ -200,7 +200,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/services"
                     className="text-gray-300 hover:text-orange-400 transition-colors"
                   >
                     Engineering Reports
